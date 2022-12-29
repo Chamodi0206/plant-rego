@@ -58,9 +58,9 @@ void loop(){
 void SendMessage(){
     mySerial.println("AT+CMGF=1"); // set SMS mode to text
     delay(1000);
-    mySerial.println("AT+CMGS=\"+94719414139\"\r"); // set the phone number
+    mySerial.println("AT+CMGS=\"+94740199863\"\r"); // set the phone number
     delay(1000);
-    mySerial.printlm("Hi! I'm Sasanka"); // send the message
+    mySerial.printlm("Hi! I'm abc"); // send the message
     delay(1000);
     mySerial.write(26); // send the ASCII code of CTRL+Z
     delay(1000);
