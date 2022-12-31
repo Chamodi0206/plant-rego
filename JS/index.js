@@ -183,8 +183,11 @@ const plantNames04 = [
 ];
 
 // set the date and time
-let dt = new Date();
-document.getElementById("date-time").innerHTML = dt.toLocaleString();
+function realTime() {
+  let dt = new Date();
+  document.getElementById("date-time").innerHTML = dt.toLocaleString();
+}
+setInterval(realTime, 1000);
 
 // button action
 btn.addEventListener("click", () => {
@@ -231,28 +234,39 @@ function sencondFun() {
   const fragment = document.createDocumentFragment();
 
   for (let i = 0; i < n; i++) {
+    // create the divs and set the id and class
     var mainDiv = document.createElement("div");
-    var mainText = document.createElement("h4");
-    var linkplant = document.createElement("a");
+    var image = document.createElement("img");
+    var plantText = document.createElement("div");
     mainDiv.className = "plant";
     mainDiv.id = "plant" + i;
-    if (value == 1) mainText.textContent = plantNames01[i];
-    if (value == 2) mainText.textContent = plantNames02[i];
-    if (value == 3) mainText.textContent = plantNames03[i];
-    if (value == 4) mainText.textContent = plantNames04[i];
-    mainText.className = "plant-text";
-    linkplant.onmouseenter = function () {
-      changeImage("IMG/" + plantImages[value - 1] + "/img" + (i + 1) + ".jpg");
-    };
+    image.className = "plant-image";
+    image.width = "200";
+    plantText.className = "plant-text";
 
-    fragment.appendChild(linkplant).appendChild(mainDiv).appendChild(mainText);
+    // set the image and text
+    if (value == 1) {
+      image.src = "IMG/plants/" + plantNames01[i] + ".jpg";
+      plantText.textContent = plantNames01[i];
+    }
+    if (value == 2) {
+      image.src = "IMG/plants/" + plantNames02[i] + ".jpg";
+      plantText.textContent = plantNames02[i];
+    }
+    if (value == 3) {
+      image.src = "IMG/plants/" + plantNames03[i] + ".jpg";
+      plantText.textContent = plantNames03[i];
+    }
+    if (value == 4) {
+      image.src = "IMG/plants/" + plantNames04[i] + ".jpg";
+      plantText.textContent = plantNames04[i];
+    }
 
+    // append the divs to the fragment
+    fragment.appendChild(mainDiv).appendChild(image);
+    fragment.appendChild(mainDiv).appendChild(plantText);
+
+    // append the fragment to the div
     document.getElementById("inside").appendChild(fragment);
   }
-}
-
-// change the image
-function changeImage(imgChange) {
-  var img = document.getElementById("slider");
-  img.src = imgChange;
 }
