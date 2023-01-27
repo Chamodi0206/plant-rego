@@ -20,17 +20,32 @@ Components:
 
 */
 
-LiquidCrystal_I2C lcd(0x27, 16, 2);
+#include <LiquidCrystal_I2C.h>
 
-void setup(){
-    lcd.begin();
-    lcd.backlight();
-    lcd.setCursor(4,0);
-    lcd.print("Hello");
-    lcd.setCursor(4,1);
-    lcd.print("World");
+LiquidCrystal_I2C lcd(0x3F, 16, 2); // I2C address 0x27, 16 column and 2 rows
+
+void setup()
+{
+  lcd.init(); // initialize the lcd
+  lcd.backlight();
 }
 
-void loop(){
+void loop()
+{
+  lcd.clear();                 // clear display
+  lcd.setCursor(0, 0);         // move cursor to   (0, 0)
+  lcd.print("Arduino");        // print message at (0, 0)
+  lcd.setCursor(2, 1);         // move cursor to   (2, 1)
+  lcd.print("Chamodi"); // print message at (2, 1)
+  delay(2000);                 // display the above for two seconds
+
+  lcd.clear();                  // clear display
+  lcd.setCursor(3, 0);          // move cursor to   (3, 0)
+  lcd.print("Ape");        // print message at (3, 0)
+  lcd.setCursor(0, 1);          // move cursor to   (0, 1)
+  lcd.print("Sene"); // print message at (0, 1)
+  delay(2000);                  // display the above for two seconds
+}
+
 
 }
