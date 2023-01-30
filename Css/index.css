@@ -44,7 +44,7 @@ header img {
 
 header h2 {
   font-size: 20px;
-  margin: 0.6em;
+  margin: 0.5em;
   text-transform: uppercase;
 }
 
@@ -87,7 +87,7 @@ input[type="text"] {
   border: 2px solid green;
   background-color: transparent;
   border-radius: 50px;
-  font-size: 1.5em;
+  font-size: 1.6em;
   text-decoration: none;
   color: green;
 }
